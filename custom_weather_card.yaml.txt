@@ -1,0 +1,5 @@
+type: module
+name: Custom Weather Card
+description: A custom card to display weather from multiple providers.
+author: Epicoll	
+url: https://github.com/epicoll/custom-weather-card
