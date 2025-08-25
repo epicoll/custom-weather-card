@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-class CustomWeatherCard extends LitElement {
+class MultiWeatherCard extends LitElement {
   static get properties() {
     return {
       hass: { type: Object },
@@ -165,4 +165,4 @@ class CustomWeatherCard extends LitElement {
   }
 }
 
-customElements.define('custom-weather-card', CustomWeatherCard);
+customElements.define('multi-weather-card', MultiWeatherCard);
