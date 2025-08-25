@@ -106,63 +106,63 @@ class CustomWeatherCard extends LitElement {
       return html`<div>Configuration error!</div>`;
     }
 
-    const mainEntity = this.hass.states[this.config.main_entity];
-    const otherEntities = this.config.other_entities || [];
+    константа mainEntity = этот.хасс.состояния[этот.конфигурация.основная_сущность];
+    константа другиеСубъекты = этот.конфигурация.другие_сущности || [];
 
-    if (!mainEntity) {
-      return html`<div>Main entity not found: ${this.config.main_entity}</div>`;
+    если (!mainEntity) {
+      возвращаться html`<div>Основная сущность не найдена: ${этот.конфигурация.основная_сущность}</див>`;
     }
 
-    const mainTemp = mainEntity.attributes.temperature;
-    const mainFeelsLike = mainEntity.attributes.apparent_temperature || mainEntity.attributes.feels_like;
-    const mainIcon = mainEntity.attributes.weather_icon || mainEntity.attributes.icon;
-    const mainDescription = mainEntity.state;
+    константа mainTemp = mainEntity.атрибуты.температура;
+    константа mainFeelsLike = mainEntity.атрибуты.кажущаяся_температура || mainEntity.атрибуты.чувствует_как;
+    константа mainIcon = mainEntity.атрибуты.weather_icon || mainEntity.атрибуты.икона;
+    константа основноеОписание = mainEntity.состояние;
 
-    return html`
-      <ha-card class="weather-card">
-        <div class="card-header">${this.config.title || 'Сводка погоды'}</div>
-        <div class="main-weather">
-          <div class="main-weather-left">
-            <span class="main-weather-temp">${mainTemp}°C</span>
-            ${mainFeelsLike ? html`<span class="main-weather-feels">Ощущается как ${mainFeelsLike}°C</span>` : ''}
-          </div>
-          <div class="main-weather-right">
-            <img class="main-weather-icon" src="${mainIcon}" alt="${mainDescription}">
-            <span class="main-weather-description">${mainDescription}</span>
-          </div>
-        </div>
+    возвращаться html`
+ <ha-card class= "weather-card">
+ <div class= "card-header">${этот.конфигурация.заголовок || 'Сводка погоды'}</див>
+ <div class= "main-weather">
+ <div class= "main-weather-left">
+ <span class= "main-weather-temp">${mainTemp}°C</span>
+            ${mainFeelsLike ? html`<span class="main-weather-feels">Очущется как ${mainFeelsLike}°С</охватывать>` : ''}
+ </див>
+ <div class= "main-weather-right">
+ <img class= "main-weather-icon" src="${mainIcon}" альт="${основноеОписание}">
+ <span class= "основное описание погоды">${основноеОписание}</охватывать>
+ </див>
+ </див>
 
-        ${otherEntities.length > 0 ? html`
-          <div class="other-sources">
-            ${otherEntities.map(entityId => {
-              const entity = this.hass.states[entityId];
-              if (!entity) return '';
+        ${другиеСубъекты.длина > 0 ? html`
+ <div class="другие-источники">
+            ${другиеСубъекты.карта(идентификатор сущности => {
+              константа сущность = этот.хасс.состояния[идентификатор сущности];
+              если (!сущность) возвращаться '';
 
-              const temp = entity.attributes.temperature;
-              const feelsLike = entity.attributes.apparent_temperature || entity.attributes.feels_like;
-              const icon = entity.attributes.weather_icon || entity.attributes.icon;
-              const name = entity.attributes.friendly_name || entity.entity_id;
+              константа температура = сущность.атрибуты.температура;
+              константа чувствует себя как = сущность.атрибуты.кажущаяся_температура || сущность.атрибуты.чувствует_как;
+              константа икона = сущность.атрибуты.weather_icon || сущность.атрибуты.икона;
+              константа имя = сущность.атрибуты.дружелюбное_имя || сущность.идентификатор_сущности;
               
-              return html`
-                <div class="source-item">
-                  <span class="source-name">${name.split('.')[1].replace(/_/g, ' ')}</span>
-                  <div class="source-data">
-                    <span class="source-data-temp">${temp}°C</span>
-                    ${feelsLike ? html`<span class="source-data-feels">Ощущается как ${feelsLike}°C</span>` : ''}
-                  </div>
-                  <img class="source-icon" src="${icon}" alt="${name}">
-                </div>
+              возвращаться html`
+ <div class= "source-item">
+ <span class="имя-источника">${имя.расколоть('.')[1].заменять(/_/г, ' ')}</охватывать>
+ <div class="исходные-данные">
+ <span class= "source-data-temp">${температура}°C</span>
+                    ${чувствует себя как ? html`<span class="source-data-feels">Очущется как ${чувствует себя как}°С</охватывать>` : ''}
+ </див>
+ <img class= "source-icon" src="${икона}" альт="${имя}">
+ </див>
               `;
             })}
-          </div>
+ </див>
         ` : ''}
-      </ha-card>
+ </ха-карта>
     `;
   }
 
-  getCardSize() {
-    return 3;
+  получитьРазмерКарты() {
+    возвращаться 3;
   }
 }
 
-customElements.define('custom-weather-card', CustomWeatherCard);
+пользовательские элементы.определять(«индивидуальная карта погоды», Пользовательская карта погоды);
