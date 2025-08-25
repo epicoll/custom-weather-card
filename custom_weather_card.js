@@ -1,72 +1,72 @@
-import { LitElement, html, css } from 'lit';
+импорт { LitElement, html, ксс } от 'горит';
 
-class CustomWeatherCard extends LitElement {
-  static get properties() {
-    return {
-      hass: { type: Object },
-      config: { type: Object },
+класс Пользовательская карта погоды расширяет LitElement {
+  статический получать свойства() {
+    возвращаться {
+      хасс: { тип: Объект },
+      конфигурация: { тип: Объект },
     };
   }
 
-  static get styles() {
-    return css`
-      .weather-card {
-        width: 100%;
-        background-color: var(--card-background-color, #fff);
-        border-radius: var(--ha-card-border-radius, 12px);
-        box-shadow: var(--ha-card-box-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        color: var(--primary-text-color, #333);
-        font-family: var(--ha-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif);
+  статический получать стили() {
+    возвращаться ксс`
+ .погодная карта {
+ ширина: 100%;
+ цвет-фона: var(--цвет-фона-карты, #fff);
+ радиус-границы: var(--ha-card-border-radius, 12px);
+ box-shadow: var(--ha-card-box-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
+ отступ: 24px;
+ дисплей: гибкий;
+ направление изгиба: столбец;
+ зазор: 20px;
+ цвет: var(--primary-text-color, #333);
+ семейство шрифтов: var(-ha-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, без засечек);
       }
-      .card-header {
-        font-size: 20px;
-        font-weight: bold;
-        color: var(--secondary-text-color, #555);
-        text-align: center;
+ .заголовок-карты {
+ размер шрифта: 20px;
+ начертание шрифта: жирный;
+ цвет: var(--secondary-text-color, #555);
+ выравнивание текста: по центру;
       }
-      .main-weather {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
+ .основная-погода {
+ дисплей: гибкий;
+ обосновать содержание: пространство между;
+ выровнять элементы: центр;
+ нижний край: 10px;
       }
-      .main-weather-left {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+ .главная-погода-слева {
+ дисплей: гибкий;
+ направление изгиба: столбец;
+ выравнивание элементов: гибкий старт;
       }
-      .main-weather-temp {
-        font-size: 48px;
-        font-weight: 300;
+ .основная-погода-температура {
+ размер шрифта: 48px;
+ вес шрифта: 300;
       }
-      .main-weather-feels {
-        font-size: 16px;
-        color: var(--secondary-text-color, #777);
-        margin-top: -5px;
+ .основные-погодные-ощущения {
+ размер шрифта: 16px;
+ цвет: var(--secondary-text-color, #777);
+ верхнее поле: -5px;
       }
-      .main-weather-right {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
+ .главная-погода-справа {
+ дисплей: гибкий;
+ направление изгиба: столбец;
+ выровнять элементы: центр;
+ зазор: 5px;
       }
-      .main-weather-icon {
-        width: 80px;
-        height: 80px;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+ .главный-значок-погоды {
+ ширина: 80px;
+ высота: 80px;
+ фильтр: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
       }
-      .main-weather-description {
-        text-align: center;
-        font-size: 16px;
-        color: var(--secondary-text-color, #777);
+ .основное-описание-погоды {
+ выравнивание текста: по центру;
+ размер шрифта: 16px;
+ цвет: var(--secondary-text-color, #777);
       }
-      .other-sources {
-        border-top: 1px solid var(--divider-color, #eee);
-        padding-top: 20px;
+ .другие-источники {
+ border-top: 1px solid var(--divider-color, #eee);
+ отступ сверху: 20px;
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -164,5 +164,6 @@ class CustomWeatherCard extends LitElement {
     return 3;
   }
 }
+
 
 customElements.define('custom-weather-card', CustomWeatherCard);
